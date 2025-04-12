@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - KalaYatra</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      background: linear-gradient(270deg, #e3f2fd, #e0f7fa, #e1f5fe, #f3fafe);
+      background-size: 800% 800%;
+      animation: softBlue 20s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    @keyframes softBlue {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .auth-container {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      padding: 48px 36px;
+      border-radius: 16px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    h2 {
+      margin-bottom: 28px;
+      color: #2c3e50;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 18px;
+      margin: 12px 0;
+      border: 1px solid #cfd8dc;
+      border-radius: 10px;
+      background: #f9f9f9;
+      font-size: 15px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      background: #e0f7fa;
+      border-color: #64b5f6;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: #2196f3;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1e88e5;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 16px;
+      color: #d32f2f;
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      .auth-container {
+        margin: 0 20px;
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="auth-container">
+    <h2>Create your KalaYatra account</h2>
+    <input type="text" id="registerName" placeholder="Username" />
+    <input type="email" id="registerEmail" placeholder="Email" />
+    <input type="password" id="registerPassword" placeholder="Password" />
+    <button onclick="handleRegister()">Register</button>
+    <div class="message" id="registerMessage"></div>
+  </div>
+
+  <script>
+    let users = JSON.parse(localStorage.getItem('users') || '{}');
+
+    function handleRegister() {
+      const name = document.getElementById('registerName').value.trim();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value.trim();
+      const messageDiv = document.getElementById('registerMessage');
+
+      if (!name || !email || !password) {
+        messageDiv.textContent = 'Please fill in all fields.';
+        messageDiv.style.color = '#d32f2f';
+        return;
+      }
+
+      if (users[name]) {
+        messageDiv.textContent = 'Username already exists!';
+        messageDiv.style.color = '#d32f2f';
+        return;
+      }
+
+      users[name] = { email, password };
+      localStorage.setItem('users', JSON.stringify(users));
+      messageDiv.style.color = '#388e3c';
+      messageDiv.textContent = 'Registration successful! Redirecting...';
+      
+      setTimeout(() => {
+        window.location.href = 'login.html';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

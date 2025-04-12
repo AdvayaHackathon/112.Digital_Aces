@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google Maps Directions in India</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        margin: 0;
+      }
+      #inputs {
+        margin-bottom: 20px;
+      }
+      #inputs input {
+        padding: 10px;
+        width: 200px;
+        margin-right: 10px;
+      }
+      #inputs button {
+        padding: 10px 20px;
+      }
+      #map {
+        height: 600px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Get Directions</h2>
+    <div id="inputs">
+      <input id="source" type="text" placeholder="Enter Source">
+      <input id="destination" type="text" placeholder="Enter Destination">
+      <button onclick="getRoute()">Get Directions</button>
+    </div>
+    <div id="map"></div>
+
+    <script>
+      let map, directionsService, directionsRenderer;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: 20.5937, lng: 78.9629 }, // Centered on India
+          zoom: 6,
+        });
+
+        directionsService = new google.maps.DirectionsService();
+        directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);
+      }
+
+      function getRoute() {
+        const source = document.getElementById("source").value;
+        const destination = document.getElementById("destination").value;
+
+        if (!source || !destination) {
+          alert("Please enter both source and destination.");
+          return;
+        }
+
+        const request = {
+          origin: source,
+          destination: destination,
+          travelMode: google.maps.TravelMode.DRIVING,
+        };
+
+        directionsService.route(request, (result, status) => {
+          if (status === "OK") {
+            directionsRenderer.setDirections(result);
+          } else {
+            alert("Could not get directions: " + status);
+          }
+        });
+      }
+    </script>
+
+    <!-- Load Google Maps JS API with the initMap callback -->
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1VV1oUqZukEUKGJWHbxA3iYbCk_l3ApY&callback=initMap">
+    </script>
+  </body>
+</html>

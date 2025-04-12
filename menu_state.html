@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Indian State Culture</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f4ef;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #4b2e2e;
+    }
+
+    select {
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h2 {
+      color: #6a1b1b;
+    }
+
+    .section img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Explore Indian Culture by State</h1>
+
+  <select id="stateSelector">
+    <option value="">-- Select a State --</option>
+    <option value="Karnataka">Karnataka</option>
+    <option value="Rajasthan">Rajasthan</option>
+    <option value="Kerala">Kerala</option>
+    <option value="Punjab">Punjab</option>
+    <option value="Gujarat">Gujarat</option>
+  </select>
+
+  <div id="stateContent" class="content"></div>
+
+  <script>
+    const stateData = {
+      Karnataka: {
+        stateName: "Karnataka",
+        stateImage: "https://captureatrip-cms-storage.s3.ap-south-1.amazonaws.com/Hampi_Karnataka_802540497f.webp",
+        stateDescription:
+          "Karnataka is known for its rich cultural heritage, classical music and dance, and historical architecture. The state is home to the Mysore Palace, Hampi temples, and vibrant folk traditions. Its music culture is deeply rooted in Carnatic music, with famous festivals like the Mysore Dasara that celebrate the state's rich art forms. The state's cuisine features unique dishes such as Ragi mudde and Bisi Bele Bath, adding to its diverse cultural fabric. Karnataka’s natural beauty, with places like Coorg and the Western Ghats, complements its cultural richness. Hampi, a UNESCO World Heritage site, stands as a symbol of Karnataka’s ancient history, while cities like Bangalore offer a modern contrast with their booming tech industry. The state also has a deep connection to various art forms like Yakshagana, a traditional theatre form. Karnataka's cultural diversity spans multiple communities and traditions, each contributing to its historical and cultural identity. In architecture, the state boasts stunning temples and forts, with intricate carvings and structures reflecting its royal past.",
+        
+        artisanName: "Channapatna Toys",
+        artisanImage: "https://www.sahapedia.org/sites/default/files/Overview%20Article%20Cover%20Photo.jpg",
+        artisanDescription:
+          "Channapatna Toys are a centuries-old tradition of handcrafted wooden toys that originated in the town of Channapatna. Known for their intricate designs, these toys are made using lacquer and natural dyes, which give them vibrant colors. Skilled artisans use traditional methods passed down through generations to create these toys, which are not only popular among children but also serve as a cultural symbol of Karnataka. The craft involves the use of finely tuned lathes to shape the wood, and each piece is handcrafted with care and precision. These toys are eco-friendly, made from locally sourced wood, and often take the form of animals, dolls, and geometric shapes. The craft is an essential part of the local economy, and there have been efforts to preserve and promote Channapatna toys through workshops and cultural initiatives. The toys are also a popular souvenir for tourists visiting the region, offering a glimpse into Karnataka’s rich artisanal heritage."
+      },
+
+      Rajasthan: {
+        stateName: "Rajasthan",
+        stateImage: "https://captureatrip-cms-storage.s3.ap-south-1.amazonaws.com/Amer_Fort_Rajasthan_02932fca2c.webp",
+        stateDescription:
+          "Rajasthan, the land of kings, is one of the most culturally vibrant states in India. Known for its royal palaces, historic forts, and vibrant festivals, Rajasthan stands as a testimony to India's rich history and architectural marvels. Jaipur, the Pink City, is famous for its rich heritage, stunning palaces, and forts like Amer Fort, while Udaipur's City Palace on Lake Pichola offers a breathtaking view of the surrounding beauty. Rajasthan is also known for its desert landscapes and traditional camel rides that attract thousands of tourists each year. The state's folk music and dance, including Ghoomar and Kalbeliya, reflect the rhythm of Rajasthan’s life. Rajasthan’s cuisine, with dishes like Dal Baati Churma, offers a flavorful experience that captures the essence of desert life. The state's colorful bazaars are filled with textiles, pottery, jewelry, and handicrafts, showcasing the talents of local artisans. The state’s vibrant festivals like Pushkar Camel Fair and Desert Festival in Jaisalmer draw people from around the world. Rajasthan’s culture is deeply influenced by Rajput history and their chivalric code, which is reflected in the art, music, and traditions still prevalent today. Artisans in Rajasthan are known for their craftsmanship in textiles, jewelry, and pottery, contributing to the state's cultural wealth.",
+        
+        artisanName: "Blue Pottery",
+        artisanImage: "https://ebnw.net/wp-content/uploads/2020/11/Blue-Pottery-1.jpg",
+        artisanDescription:
+          "Blue Pottery is a unique craft that originated in Persia and was brought to India by the Mughals. Jaipur, the capital of Rajasthan, is famous for its vibrant blue pottery, which is made using quartz, a material that gives the pottery its distinct color. The pottery is crafted by hand, with intricate patterns and designs painted using natural dyes. Blue Pottery artisans use a technique of hand-painting, which is inspired by Persian designs, and this art has been refined over centuries. The craft involves preparing a special paste from quartz and then molding it into shapes like vases, tiles, and decorative pieces. The pottery is known for its smooth texture and translucent quality. These beautiful pieces of pottery have a variety of uses, from decorative items to functional pieces like vases and plates. Blue Pottery also plays a key role in Rajasthan’s tourism industry, with visitors flocking to local workshops to watch the artisans at work. The craft has seen a resurgence in recent years, with efforts to preserve and promote it in both national and international markets. The craft is now an important symbol of Rajasthan’s cultural heritage."
+      },
+
+      Kerala: {
+        stateName: "Kerala",
+        stateImage: "https://wallpapercave.com/wp/wp2894065.jpg",
+        stateDescription:
+          "Kerala, known as ‘God’s Own Country’, is a state in southern India famous for its scenic beauty, pristine beaches, and lush green backwaters. The state is rich in history, with a unique blend of Dravidian and colonial influences. Kerala’s culture is reflected in its classical arts like Kathakali, Mohiniyattam, and Theyyam, each having distinct traditions and performances. The state is also known for its ancient temples and elaborate temple festivals, such as the Thrissur Pooram. Kerala’s cuisine, heavily influenced by coconut and spices, includes iconic dishes like Sadya, Kerala Parotta, and Fish Curry. Ayurveda, the ancient Indian system of medicine, is widely practiced in Kerala, with numerous Ayurvedic centers offering treatments. Kerala is also famous for its colorful boat races, such as the Vallam Kali, held in the backwaters of Alleppey. The state’s vibrant local art forms and crafts, like Kathakali masks and coir products, showcase the deep-rooted cultural heritage. Kerala’s natural beauty is complemented by the rich cultural landscape, making it a top destination for travelers seeking both relaxation and exploration. From the hill stations in Munnar to the beaches of Kovalam, Kerala offers a unique cultural experience that blends nature with tradition.",
+        
+        artisanName: "Coir Products",
+        artisanImage: "https://coirproductbydrs.com/wp-content/uploads/2021/07/142471377_2850790011914701_4228354791393636884_n-750x750.jpg",
+        artisanDescription:
+          "Coir crafts are one of the traditional handicrafts of Kerala, primarily made from the fibers of coconut husks. These products include mats, rugs, carpets, and handicrafts that are an essential part of Kerala’s rural economy. The process of making coir products involves several steps, from extracting the fibers from coconut husks to spinning them into yarn, which is then woven or twisted into various forms. The products are eco-friendly, durable, and aesthetically beautiful, with intricate designs and patterns. Coir handicrafts are often used in homes and businesses, as well as being sold as souvenirs to tourists visiting Kerala. Coir weaving has been passed down through generations and remains an important skill, with artisan communities continuing the craft in Kerala. These products reflect the sustainable living practices of Kerala, which is known for its deep connection to nature. Coir crafts also play an important role in the local economy, providing employment to many families across the state. The art of making coir products is a symbol of Kerala's craftsmanship and its rich heritage."
+      },
+
+      Punjab: {
+        stateName: "Punjab",
+        stateImage: "https://cdn.britannica.com/53/176353-050-5B854179/Harmandir-Sahib-Amritsar-Punjab-India.jpg",
+        stateDescription:
+          "Punjab, the land of five rivers, is a vibrant state known for its cultural richness, agriculture, and history. The state is famous for the Golden Temple, a symbol of peace and spirituality, located in Amritsar. The region’s folk traditions are expressed through music and dance forms like Bhangra and Gidda, which are performed during festivals and celebrations. The annual harvest festival of Baisakhi is one of the most important celebrations in Punjab, drawing people together for joyous celebrations. Punjabi cuisine is renowned for its rich, flavorful dishes like Butter Chicken, Amritsari Kulcha, and Lassi. Punjab’s textiles, especially Phulkari embroidery, are famous for their intricate and colorful patterns. The state’s rich history includes the rise of Sikhism and the role it played in India’s freedom struggle. Punjab’s people are known for their hospitality and warmth, which is reflected in their cultural practices. The state is also home to many fairs, including the famous Maghi Mela, showcasing the cultural diversity of its people. The rural landscape of Punjab, with its vast fields of wheat and rice, forms the backbone of India’s food security.",
+        
+        artisanName: "Phulkari Embroidery",
+        artisanImage: "https://i.pinimg.com/originals/56/7d/ab/567dab2e8c9fbdf98b94375585727c8d.jpg",
+        artisanDescription:
+          "Phulkari is a traditional form of embroidery from Punjab, known for its bright and intricate threadwork. This art form is typically used to decorate shawls, dupattas, and other textiles with colorful floral patterns. The term ‘Phulkari’ literally translates to ‘flower work’, and it is known for its use of vibrant colors and geometric patterns. The craft is often passed down through generations, with each family having its own unique style and techniques. Phulkari embroidery is done with silk or cotton threads on fabrics like cotton or chiffon. The motifs used in Phulkari designs are often inspired by nature, particularly flowers and trees. The art form is most commonly practiced during weddings and festivals, where brides are adorned with Phulkari shawls and dupattas. Over time, the craft has been modernized, with contemporary designs being created for a global audience. Phulkari is now recognized worldwide as a symbol of Punjab’s cultural identity, and efforts to preserve and promote this craft have been ongoing in recent years."
+      },
+
+      Gujarat: {
+        stateName: "Gujarat",
+        stateImage: "https://captureatrip-cms-storage.s3.ap-south-1.amazonaws.com/Ranakpur_Jain_Temple_Rajasthan_f97c23e198.webp",
+        stateDescription:
+          "Gujarat, a state located in western India, is known for its diverse culture, rich history, and unique traditions. The state is famous for the Rann of Kutch, a vast salt desert that hosts the Rann Utsav, a cultural festival showcasing traditional music, dance, and crafts. Gujarat’s architecture, from the stunning Sun Temple at Modhera to the intricate stepwells of Adalaj, tells stories of the state’s rich history and heritage. The state is home to Mahatma Gandhi’s birthplace, Porbandar, and the Dandi March route. Gujarat is also known for its vibrant festivals, especially Navratri, a nine-night festival of dance and devotion. Gujarati cuisine, with dishes like Dhokla, Khandvi, and Farsan, is famous for its sweet, salty, and spicy flavors. The state’s artisans are known for their textiles, embroidery, and handicrafts, particularly Bandhani tie-dye. Gujarat is also home to some of the most sacred sites for Hindus, including Dwarka and Somnath Temple. The state’s wildlife sanctuaries, such as the Gir National Park, are also home to the Asiatic lion, making Gujarat a key player in wildlife conservation.",
+        
+        artisanName: "Bandhani Tie-Dye",
+        artisanImage: "https://avagatasara.com/wp-content/uploads/2023/10/18290-1.jpg",
+        artisanDescription:
+          "Bandhani is a traditional Indian art of tie-dyeing textiles that originated in Gujarat. The process involves tying small portions of fabric with threads to create intricate patterns and then dyeing the fabric in vibrant colors. The result is a series of beautiful, colorful patterns that have become iconic in Gujarati textiles. Bandhani is primarily practiced in Kutch and other regions of Gujarat, where artisans skillfully create scarves, dupattas, sarees, and other garments. The craft is an intricate process, with each design taking time and precision to complete. The fabric is usually made of cotton or silk, and the colors used in Bandhani are drawn from natural dyes, making it an eco-friendly art form. Bandhani is often worn during weddings and festive occasions, with each pattern having its own significance. The craft is not only an expression of beauty but also an important cultural tradition passed down through generations. Bandhani is a symbol of Gujarat's textile heritage and continues to be a major industry in the region."
+      }
+    };
+
+    const stateSelector = document.getElementById("stateSelector");
+    const stateContent = document.getElementById("stateContent");
+
+    stateSelector.addEventListener("change", () => {
+      const selectedState = stateSelector.value;
+      if (selectedState && stateData[selectedState]) {
+        const data = stateData[selectedState];
+        stateContent.innerHTML = `
+          <div class="section">
+            <h2>${data.stateName}</h2>
+            <img src="${data.stateImage}" alt="${data.stateName}" />
+            <p class="description">${data.stateDescription}</p>
+          </div>
+          <div class="section">
+            <h2>${data.artisanName}</h2>
+            <img src="${data.artisanImage}" alt="${data.artisanName}" />
+            <p class="description">${data.artisanDescription}</p>
+          </div>
+        `;
+      } else {
+        stateContent.innerHTML = "";
+      }
+    });
+  </script>
+</body>
+</html>
